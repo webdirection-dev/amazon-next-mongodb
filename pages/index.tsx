@@ -1,5 +1,5 @@
 import General from '../layout/General'
-import {products} from '../static/db-local/db-products'
+import {products} from '../static/dblocal/dbproducts'
 import ProductItem from '../components/ProductItem'
 const Home = () => (
     <General title='Shop | NextJS'>

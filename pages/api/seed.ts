@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import clientPromise from '../../static/lib/mongodb'
-import {users} from '../../static/db-local/db-users'
+import {users} from '../../static/dblocal/dbusers'
 import {checkTypesForUsersArr} from '../../static/types/types-mongo'
 
 type TResponse = any
