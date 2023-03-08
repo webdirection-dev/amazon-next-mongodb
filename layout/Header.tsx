@@ -1,16 +1,8 @@
 import Link from "next/link"
-import {useRouter} from 'next/router'
-import {useAppSelector} from '../static/store'
-import {selectCartInfo} from '../static/store/cart-slice'
-import {useEffect, useState} from 'react'
+import {useHeader} from './hooks/use-header'
 
 const Header = () => {
-    const router = useRouter()
-    const {quantityAllItems} = useAppSelector(store => selectCartInfo(store))
-    const [itemsLength, setItemsLength] = useState(0)
-
-    useEffect(() => {setItemsLength(quantityAllItems)
-    }, [quantityAllItems])
+    const {itemsLength, checkPathname} = useHeader()
 
     return(
         <header>
@@ -19,7 +11,7 @@ const Header = () => {
                     <li><Link href='/' className='text-lg font-bold'>myStore</Link></li>
 
                     <ul className='flex'>
-                        {!router.pathname.endsWith('cart') &&
+                        {!checkPathname('cart') &&
                             <li>
                                 <Link href='/cart' className='mr-1 p-2 relative'>
                                     Cart {itemsLength > 0 && (
@@ -32,7 +24,7 @@ const Header = () => {
                             </li>
                         }
 
-                        {!router.pathname.endsWith('login') &&
+                        {!checkPathname('login') &&
                             <li><Link href='/login' className='p-2'>Login</Link></li>
                         }
                     </ul>

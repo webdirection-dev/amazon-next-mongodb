@@ -1,11 +1,8 @@
 import General from '../layout/General'
-import {products} from '../static/dblocal/dbproducts'
-import ProductItem from '../components/ProductItem'
+import ProductCardList from '../components/productCard/ProductCardList'
 const Home = () => (
     <General title='Shop | NextJS'>
-        <div className='grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4'>
-            { products.map(i => <ProductItem key={i.slug} item={i} /> ) }
-        </div>
+        <ProductCardList />
     </General>
 )
 export default Home

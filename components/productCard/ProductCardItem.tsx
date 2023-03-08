@@ -1,10 +1,10 @@
 import {FC} from 'react'
 import Link from 'next/link'
-import {IProduct} from '../static/types/types-app'
-import {useAppDispatch} from '../static/store'
-import {addProductToCart} from '../static/store/cart-slice'
+import {IProduct} from '../../static/types/types-app'
+import {useAppDispatch} from '../../static/store'
+import {addProductToCart} from '../../static/store/cart-slice'
 
-const ProductItem: FC<{item: IProduct}> = ({item}) => {
+const ProductCardItem: FC<{item: IProduct}> = ({item}) => {
     const dispatch = useAppDispatch()
 
     return(
@@ -37,4 +37,4 @@ const ProductItem: FC<{item: IProduct}> = ({item}) => {
         </div>
     )
 }
-export default ProductItem
+export default ProductCardItem

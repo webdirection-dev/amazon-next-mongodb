@@ -1,9 +1,9 @@
 import React, {FC} from "react"
-import {useAppDispatch} from '../static/store'
-import {managerQuantityThisItem, removeProductFromCart} from '../static/store/cart-slice'
+import {useAppDispatch} from '../../static/store'
+import {managerQuantityThisItem, removeProductFromCart} from '../../static/store/cart-slice'
 import Link from 'next/link'
 import Image from 'next/image'
-import {IProduct} from '../static/types/types-app'
+import {IProduct} from '../../static/types/types-app'
 import {XCircleIcon, MinusIcon, PlusIcon} from '@heroicons/react/outline'
 
 const CartItem: FC<{item: IProduct}> = ({item}) => {
@@ -49,5 +49,4 @@ const CartItem: FC<{item: IProduct}> = ({item}) => {
         </tr>
     )
 }
-
 export default CartItem
