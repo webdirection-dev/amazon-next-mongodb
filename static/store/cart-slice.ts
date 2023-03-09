@@ -46,7 +46,11 @@ const cartSlice = createSlice({
     name: '@@cart',
     initialState,
     reducers: {
-        resetCart: () => initialState,
+        resetCart: () => {
+            Cookies.remove('productsCookies')
+            Cookies.remove('quantityAllCookies')
+            return initialState
+        },
 
         addProductToCart: (state, action) => {
             const isInclude = state.products.find(i => i.slug === action.payload.slug)
@@ -156,7 +160,7 @@ const cartSlice = createSlice({
     },
 })
 
-export const {managerQuantityThisItem, addProductToCart, removeProductFromCart} = cartSlice.actions
+export const {resetCart, managerQuantityThisItem, addProductToCart, removeProductFromCart} = cartSlice.actions
 export const cartReducer = cartSlice.reducer
 
 //selectors

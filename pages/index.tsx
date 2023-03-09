@@ -1,8 +1,8 @@
 import General from '../layout/General'
 import ProductCardList from '../components/productCard/ProductCardList'
-const Home = () => (
+const HomeScreen = () => (
     <General title='Shop | NextJS'>
         <ProductCardList />
     </General>
 )
-export default Home
+export default HomeScreen

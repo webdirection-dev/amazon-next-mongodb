@@ -1,8 +1,10 @@
 import Link from "next/link"
-import {useHeader} from './hooks/use-header'
+import {Menu} from '@headlessui/react'
+import DropdownLink from '../components/header/DropdownLink'
+import {useHeader} from '../components/header/use-header'
 
 const Header = () => {
-    const {itemsLength, checkPathname} = useHeader()
+    const {itemsLength, session, checkPathname, handlerLogout} = useHeader()
 
     return(
         <header>
@@ -25,7 +27,19 @@ const Header = () => {
                         }
 
                         {!checkPathname('login') &&
-                            <li><Link href='/login' className='p-2'>Login</Link></li>
+                            <li>
+                                {session?.user ?
+                                    <Menu as='div' className='relative inline-block'>
+                                        <Menu.Button className='text-blue-600'>{session?.user.name}</Menu.Button>
+                                        <Menu.Items className='absolute right-0 w-56 bg-white origin-top-right shadow-lg'>
+                                            <DropdownLink href='/profile' title='Profile' />
+                                            <DropdownLink href='/order-history' title='Order History' />
+                                            <DropdownLink href='#' title='Logout' handlerLogout={handlerLogout}/>
+                                        </Menu.Items>
+                                    </Menu>
+                                : <Link href='/login' className='p-2'>Login</Link>
+                                }
+                            </li>
                         }
                     </ul>
                 </ul>
@@ -33,6 +47,4 @@ const Header = () => {
         </header>
     )
 }
-
 export default Header
-

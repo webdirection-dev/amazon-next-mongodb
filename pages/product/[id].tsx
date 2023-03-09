@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import General from '../../layout/General'
-import {useProductScreen} from '../../static/hooks/use-product-screen'
+import {useProductScreen} from '../../static/helpers/hooks/use-product-screen'
 import Link from 'next/link'
 
 const ProductScreen = () => {

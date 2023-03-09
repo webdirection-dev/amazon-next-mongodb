@@ -1,8 +1,8 @@
 import {useRouter} from 'next/router'
-import {useAppDispatch} from '../store'
-import {addProductToCart} from '../store/cart-slice'
+import {useAppDispatch} from '../../store'
+import {addProductToCart} from '../../store/cart-slice'
 import {useEffect, useState} from 'react'
-import {products} from '../dblocal/dbproducts'
+import {products} from '../../dblocal/dbproducts'
 
 export const useProductScreen = () => {
     const router = useRouter()
